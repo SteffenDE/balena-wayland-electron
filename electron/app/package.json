@@ -1,0 +1,10 @@
+{
+    "name": "balena-electron-wayland",
+    "version": "1.0.0",
+    "description": "A minimal Electron application",
+    "main": "main.js",
+    "repository": "https://github.com/electron/electron-quick-start",
+    "devDependencies": {
+      "electron": "^16.0.10"
+    }
+}

@@ -1,0 +1,27 @@
+version: '2'
+
+volumes:
+  # shared /tmp for X11 and wayland sockets
+  sharedTmp:
+  data:
+
+services:
+  wayland:
+    restart: always
+    build: ./wayland
+    privileged: true
+    network_mode: host
+    volumes:
+     - 'sharedTmp:/tmp/displayserver'
+  electron:
+    restart: always
+    build: ./electron
+    privileged: true
+    network_mode: host
+    volumes:
+      - 'sharedTmp:/tmp/displayserver'
+      - 'data:/home/displayuser'
+    depends_on:
+      - wayland
+    labels:
+      io.balena.features.dbus: '1'
