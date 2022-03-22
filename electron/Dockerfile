@@ -11,6 +11,8 @@ RUN apt -q update \
   && apt -y -q install --no-install-recommends \
   bash sudo git nodejs npm \
   tzdata locales \
+  # ---- swaymsg ----
+  sway \
   # ---- libs for graphics ----
   libegl1-mesa libgles2-mesa libgl1-mesa-dri \
   i965-va-driver intel-media-va-driver vainfo \
