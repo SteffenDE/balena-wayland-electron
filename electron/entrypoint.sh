@@ -14,6 +14,11 @@ ln -s /tmp/displayserver/.Xauthority /home/displayuser/
 
 sysctl -w user.max_user_namespaces=10000
 
+while ! test -S $(find /tmp/displayserver/.wayland/ -name "wayland-*" | head -n 1); do
+  echo "Waiting for wayland socket..."
+  sleep 1000
+done
+
 chown -R displayuser:displayuser /home/displayuser
 sudo -u displayuser /usr/src/start-app.sh
 
