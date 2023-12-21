@@ -1,4 +1,4 @@
-FROM balenalib/amd64-ubuntu:impish-run as kiosk
+FROM balenalib/amd64-ubuntu:jammy-run as kiosk
 
 # env vars for system
 ENV DEBIAN_FRONTEND=noninteractive
